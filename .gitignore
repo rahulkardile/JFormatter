@@ -1,0 +1,45 @@
+# Node.js & TypeScript (server)
+server/node_modules/
+server/dist/
+server/*.log
+server/.env
+server/.env.local
+server/.DS_Store
+server/tsconfig.tsbuildinfo
+
+# Ignore dependencies
+node_modules/
+server/node_modules/
+
+
+# Next.js (client)
+client/node_modules/
+client/.next/
+client/out/
+client/*.log
+client/.env
+client/.env.local
+client/.DS_Store
+client/tsconfig.tsbuildinfo
+
+# Monorepo & General Files
+node_modules/
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+.DS_Store
+*.log
+*.pem
+*.swp
+
+# Build & Deployment
+/build/
+.vercel/
+.netlify/
+serverless.yml
+
+# IDE & OS-specific files
+.vscode/
+.idea/
+*.sublime-workspace
+Thumbs.db
