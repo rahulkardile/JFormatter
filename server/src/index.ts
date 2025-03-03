@@ -3,11 +3,8 @@ import { Server } from 'socket.io';
 import helmet from 'helmet';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
+import authRoutes from './routes/user.routes'
 import connectDB from "./config/db"
-import { formatController } from './controllers/format';
-import { validateController } from './controllers/validate';
-import { convertController } from './controllers/convert';
-import { setupCollaboration } from './controllers/collaboration';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,21 +21,14 @@ app.use(
   })
 );
 
-// Authentication routes
+// routes
 app.use('/api/auth', authRoutes);
 
-// Routes
-app.post('/format', formatController);
-app.post('/validate', validateController);
-app.post('/convert', convertController);
-
-// Error handling middleware
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Start server with Socket.IO
 const server = app.listen(PORT, () => {
   connectDB();
   console.log(`Server running on port ${PORT}`);
@@ -46,11 +36,9 @@ const server = app.listen(PORT, () => {
 
 const io = new Server(server, {
   cors: {
-    origin: '*', // Allow all origins for development
+    origin: '*',
   },
 });
 
-// Setup WebSocket collaboration
-setupCollaboration(io);
 
-export { io, app }; // Export for use in controllers // Export for use in controllers
+export { io, app };
