@@ -11,7 +11,6 @@ server/tsconfig.tsbuildinfo
 node_modules/
 server/node_modules/
 
-
 # Next.js (client)
 client/node_modules/
 client/.next/

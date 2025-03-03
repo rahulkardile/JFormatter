@@ -3,6 +3,7 @@ import { Server } from 'socket.io';
 import helmet from 'helmet';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
+import connectDB from "./config/db"
 import { formatController } from './controllers/format';
 import { validateController } from './controllers/validate';
 import { convertController } from './controllers/convert';
@@ -24,10 +25,9 @@ app.use(
 );
 
 // Authentication routes
-app.post('/register', registerController);
-app.post('/login', loginController);
+app.use('/api/auth', authRoutes);
 
-// RoutesR
+// Routes
 app.post('/format', formatController);
 app.post('/validate', validateController);
 app.post('/convert', convertController);
@@ -40,6 +40,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
 // Start server with Socket.IO
 const server = app.listen(PORT, () => {
+  connectDB();
   console.log(`Server running on port ${PORT}`);
 });
 
