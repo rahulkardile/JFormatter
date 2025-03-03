@@ -1,6 +1,3 @@
-import { createServer } from 'http';
-import { io as Client } from 'socket.io-client';
-import { Server } from 'socket.io';
 import request from 'supertest';
 import { app } from '../index';
 

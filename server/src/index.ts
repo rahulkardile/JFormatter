@@ -23,7 +23,11 @@ app.use(
   })
 );
 
-// Routes
+// Authentication routes
+app.post('/register', registerController);
+app.post('/login', loginController);
+
+// RoutesR
 app.post('/format', formatController);
 app.post('/validate', validateController);
 app.post('/convert', convertController);
@@ -48,4 +52,4 @@ const io = new Server(server, {
 // Setup WebSocket collaboration
 setupCollaboration(io);
 
-export { io }; // Export for use in controllers
+export { io, app }; // Export for use in controllers // Export for use in controllers

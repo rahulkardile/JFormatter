@@ -1,5 +1,19 @@
 import { z } from 'zod';
 
+// Register input schema
+const registerSchema = z.object({
+    email: z.string().email(),
+    password: z.string().min(6),
+});
+export const validateRegisterInput = (data: unknown) => registerSchema.parse(data);
+  
+  // Login input schema
+const loginSchema = z.object({
+    email: z.string().email(),
+    password: z.string(),
+});
+export const validateLoginInput = (data: unknown) => loginSchema.parse(data);
+
 // Format input schema
 const formatSchema = z.object({
   json: z.string(),
