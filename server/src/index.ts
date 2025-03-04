@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import { Server } from 'socket.io';
 import helmet from 'helmet';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import rateLimit from 'express-rate-limit';
 import authRoutes from './routes/user.routes'
 import connectDB from "./config/db"
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(helmet());
+app.use(cookieParser());
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use(
@@ -41,4 +43,4 @@ const io = new Server(server, {
 });
 
 
-export { io, app };
+export { io, app }
