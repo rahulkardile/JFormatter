@@ -6,6 +6,7 @@ server/.env
 server/.env.local
 server/.DS_Store
 server/tsconfig.tsbuildinfo
+server/coverage/
 
 # Ignore dependencies
 node_modules/
