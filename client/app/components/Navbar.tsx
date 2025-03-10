@@ -8,7 +8,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-transparent shadow-md fixed w-full z-50">
+    <nav className="bg-blue-50 shadow-md w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between text-black h-16 items-center">
 
@@ -17,7 +17,7 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex space-x-6">
-            <Link href="/" className="hover:text-blue-600">Home</Link>
+            <Link href="/home" className="hover:text-blue-600">Home</Link>
             <Link href="/about" className="hover:text-blue-600">About</Link>
             <Link href="/services" className="hover:text-blue-600">Services</Link>
             <Link href="/contact" className="hover:text-blue-600">Contact</Link>
