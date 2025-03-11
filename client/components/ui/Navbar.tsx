@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ModeToggle } from "../ModeToggle";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,8 +21,9 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-6">
             <Link href="/home" className="hover:text-blue-600">Home</Link>
             <Link href="/about" className="hover:text-blue-600">About</Link>
-            <Link href="/services" className="hover:text-blue-600">Services</Link>
-            <Link href="/contact" className="hover:text-blue-600">Contact</Link>
+            <Link href="/services" className="hover:text-blue-600">Formatter</Link>
+            <Link href="/contact" className="hover:text-blue-600"></Link>
+            <ModeToggle />
           </div>
 
           {/* Mobile Menu Button */}
